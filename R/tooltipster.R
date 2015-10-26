@@ -5,20 +5,30 @@
 #' @import htmlwidgets
 #'
 #' @export
-tooltipster <- function(message, width = NULL, height = NULL) {
+tooltipster <- function(selector = ".tooltip", ...) {
 
   # forward options using x
   x = list(
-    message = message
+    selector = selector,
+    options = list(...)
   )
 
   # create widget
   htmlwidgets::createWidget(
     name = 'tooltipster',
     x,
-    width = width,
-    height = height,
+    width = 0,
+    height = 0,
     package = 'tooltipsterR'
+  )
+}
+
+tooltipster_html <- function(id, style, class, ...){
+  htmltools::tags$div(
+    id = id,
+    style = style,
+    style = "display:none;",
+    class = class
   )
 }
 
