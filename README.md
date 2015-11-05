@@ -1,27 +1,68 @@
-
-# tooltipsterR
+tooltipsterR
+============
 
 > Interactive Tooltip htmlwidget
 
-[![Linux Build Status](https://travis-ci.org//tooltipsterR.svg?branch=master)](https://travis-ci.org//tooltipsterR)
+[![Linux Build
+Status](https://travis-ci.org//tooltipsterR.svg?branch=master)](https://travis-ci.org//tooltipsterR)
 [![](http://www.r-pkg.org/badges/version/tooltipsterR)](http://www.r-pkg.org/pkg/tooltipsterR)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/tooltipsterR)](http://www.r-pkg.org/pkg/tooltipsterR)
+[![CRAN RStudio mirror
+downloads](http://cranlogs.r-pkg.org/badges/tooltipsterR)](http://www.r-pkg.org/pkg/tooltipsterR)
 
+htmlwidget wrapper for the excellent tooltipster library for interactive
+tooltips
 
-htmlwidget wrapper for the excellent tooltipster library for interactive tooltips
+Installation
+------------
 
-## Installation
+    devtools::install_github("/tooltipsterR")
 
-```r
-devtools::install_github("/tooltipsterR")
-```
+Usage
+-----
 
-## Usage
+### Basic with `htmltools`
 
-```r
-library(tooltipsterR)
-```
+    library(tooltipsterR)
+    library(htmltools)
 
-## License
+    browsable(
+      tagList(
+        tags$p(
+          "See my ",
+          tags$span(
+            class="tooltip",
+            style="color:gray;",
+            title="tooltips provided by tooltipsterR",
+            "tooltip"
+          )
+        ),
+        tooltipster()
+      )
+    )
+
+### Advanced with `svglite`
+
+    library(tooltipsterR)
+    library(htmltools)
+    library(svglite)
+
+    browsable(
+      tagList(
+        htmlSVG(plot(1:3,col=blues9[7:9],pch=16)),
+        tooltipster(),
+        tags$script(
+    "
+    $('circle').each(function(){
+      $(this).tooltipster({
+        content: $(this).css('fill')
+      })
+    })
+    "      
+        )
+      )
+    )
+
+License
+-------
 
 MIT + file LICENSE © [Kenton Russell](https://github.com/).

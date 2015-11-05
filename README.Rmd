@@ -27,8 +27,50 @@ devtools::install_github("/tooltipsterR")
 
 ## Usage
 
-```{r}
+### Basic with `htmltools`
+
+```{r eval = FALSE}
 library(tooltipsterR)
+library(htmltools)
+
+browsable(
+  tagList(
+    tags$p(
+      "See my ",
+      tags$span(
+        class="tooltip",
+        style="color:gray;",
+        title="tooltips provided by tooltipsterR",
+        "tooltip"
+      )
+    ),
+    tooltipster()
+  )
+)
+```
+
+### Advanced with `svglite`
+
+```{r eval = FALSE}
+library(tooltipsterR)
+library(htmltools)
+library(svglite)
+
+browsable(
+  tagList(
+    htmlSVG(plot(1:3,col=blues9[7:9],pch=16)),
+    tooltipster(),
+    tags$script(
+"
+$('circle').each(function(){
+  $(this).tooltipster({
+    content: $(this).css('fill')
+  })
+})
+"      
+    )
+  )
+)
 ```
 
 ## License
