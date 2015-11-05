@@ -12,7 +12,7 @@ HTMLWidgets.widget({
 
   renderValue: function(el, x, instance) {
 
-    $(x.selector).tooltipster();
+    $(x.selector).tooltipster(x.options);
 
   },
 
