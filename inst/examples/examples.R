@@ -22,6 +22,68 @@ browsable(
   )
 )
 
+browsable(
+  tagList(
+    tags$h1(
+      "tooltipsterR htmlwidget"
+    ),
+    tags$p(
+      "With tooltipsterR, we can get fancy ",
+      tags$span(
+        class = "tooltip",
+        style = "border-bottom: 1px dashed #999;",
+        title = "look at me",
+        "tooltips(right)"
+      ),
+      "in our html content from R."
+    ),
+    tooltipster(position="right")
+  )
+)
+
+
+# https://sjp.co.nz/projects/gridsvg/demos/tooltips/
+library(gridSVG)
+library(lattice)
+
+# Add tooltip attributes to a grob on the DL
+garnishAllGrobs <- function(elt) {
+  if (inherits(elt, "grob")) {
+    garnishGrob(
+      elt,
+      title = elt$name,
+      class = "tooltip",
+      style = "pointer-events:all;"
+    )
+  } else {
+    elt
+  }
+}
+
+# third example from demo(lattice)
+## Using a custom panel function to superpose a fitted normal density
+## on a Kernel Density Estimate
+densityplot(
+  ~ height | voice.part, data = singer, layout = c(2, 4),
+  xlab = "Height (inches)",
+  ylab = "Kernel Density\n with Normal Fit",
+  main = list("Estimated Density", cex = 1.4, col = "DarkOliveGreen"),
+  panel = function(x, ...) {
+    panel.densityplot(x, ...)
+    panel.mathdensity(dmath = dnorm, args = list(mean=mean(x),sd=sd(x)))
+  }
+)
+
+grid.DLapply(garnishAllGrobs)
+
+browsable(
+  tagList(
+    HTML(XML::saveXML(grid.export(name = NULL)$svg)),
+    tooltipster()
+  )
+)
+
+
 library(tmap)
 library(dplyr)
 data(World)
