@@ -41,6 +41,28 @@ Usage
       )
     )
 
+### Medium with `formattable`
+
+    library(tooltipsterR)
+    library(formattable)
+    library(htmltools)
+
+    #example from ?formatter
+    top10red <- formatter(
+      "span",
+      class = x ~ ifelse(rank(-x) <= 10, "tooltipster-tooltip", ""),
+      style = x ~ ifelse(rank(-x) <= 10, "color:red", NA),
+      title = x ~ ifelse(rank(-x) <= 10, "top 10", "not top 10")
+    )
+    yesno <- function(x) ifelse(x, "yes", "no")
+
+    browsable(
+      tagList(
+        formattable::as.htmlwidget(formattable(mtcars, list(mpg = top10red, qsec = top10red, am = yesno))),
+        tooltipster(".tooltipster-tooltip")
+      )
+    )
+
 ### Advanced with `svglite`
 
     library(tooltipsterR)
@@ -66,4 +88,4 @@ Usage
 License
 -------
 
-MIT + file LICENSE Â© [Kenton Russell](https://github.com/).
+MIT + file LICENSE © [Kenton Russell](https://github.com/).
