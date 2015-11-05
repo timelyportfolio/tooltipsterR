@@ -63,6 +63,31 @@ Usage
       )
     )
 
+### Medium with `remoji`
+
+    library(tooltipsterR)
+    library(remoji)
+    library(stringi)
+    library(htmltools)
+
+    browsable(
+      tagList(
+        twemoji(),
+        lapply(
+          find_emoji(""),
+          function(heart){
+            tags$div(
+              style="float:left;",
+              class="tooltip",
+              title = heart,
+              HTML(stri_trans_general(emoji(heart),"any-hex/xml"))
+            )
+          }
+        ),
+        tooltipster()
+      )
+    )
+
 ### Advanced with `svglite`
 
     library(tooltipsterR)
