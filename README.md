@@ -9,8 +9,9 @@ Status](https://travis-ci.org//tooltipsterR.svg?branch=master)](https://travis-c
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/tooltipsterR)](http://www.r-pkg.org/pkg/tooltipsterR)
 
-htmlwidget wrapper for the excellent tooltipster library for interactive
-tooltips
+`tooltipsterR` is an htmlwidget wrapper for the excellent jQuery
+[tooltipster](iamceege.github.io/tooltipster/) library for interactive
+tooltips.
 
 Installation
 ------------
