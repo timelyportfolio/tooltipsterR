@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 ## Installation
 
 ```{r eval = FALSE}
-devtools::install_github("/tooltipsterR")
+devtools::install_github("timelyportfolio/tooltipsterR")
 ```
 
 ## Usage

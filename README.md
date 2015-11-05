@@ -16,7 +16,7 @@ tooltips.
 Installation
 ------------
 
-    devtools::install_github("/tooltipsterR")
+    devtools::install_github("timelyportfolio/tooltipsterR")
 
 Usage
 -----
@@ -66,4 +66,4 @@ Usage
 License
 -------
 
-MIT + file LICENSE © [Kenton Russell](https://github.com/).
+MIT + file LICENSE Â© [Kenton Russell](https://github.com/).
