@@ -41,6 +41,7 @@ browsable(
   )
 )
 
+\dontrun{
 
 # https://sjp.co.nz/projects/gridsvg/demos/tooltips/
 library(gridSVG)
@@ -84,6 +85,8 @@ browsable(
 )
 
 
+# requires the github version of tmap
+#  devtools::install_github("mtennekes/tmap")
 library(tmap)
 library(dplyr)
 data(World)
@@ -108,3 +111,4 @@ browsable(
     tooltipster("g")
   )
 )
+}
