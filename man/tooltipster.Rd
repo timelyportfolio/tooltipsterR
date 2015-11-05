@@ -2,11 +2,19 @@
 % Please edit documentation in R/tooltipster.R
 \name{tooltipster}
 \alias{tooltipster}
-\title{<Add Title>}
+\title{Tooltips htmlwidget}
 \usage{
-tooltipster(message, width = NULL, height = NULL)
+tooltipster(selector = ".tooltip", ...)
+}
+\arguments{
+\item{selector}{any valid \code{CSS} selector.  By default,
+\code{".tooltip"} will be provided.}
+
+\item{...}{\code{list} of options for \code{tooltipster}.  See
+\href{https://iamceege.github.io/tooltipster}{toolipster options}
+for a complete reference.}
 }
 \description{
-<Add Description>
+Add tooltips to HTML content using the tooltipster jQuery library.
 }
 
