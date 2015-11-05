@@ -52,8 +52,8 @@ garnishAllGrobs <- function(elt) {
     garnishGrob(
       elt,
       title = elt$name,
-      class = "tooltip",
-      style = "pointer-events:all;"
+      class = "tooltip"#,
+      #style = "pointer-events:all;"
     )
   } else {
     elt
