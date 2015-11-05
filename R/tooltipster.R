@@ -7,6 +7,8 @@
 #' @param ... \code{list} of options for \code{tooltipster}.  See
 #'           \href{https://iamceege.github.io/tooltipster}{toolipster options}
 #'           for a complete reference.
+#'           
+#' @example ./inst/examples/examples.R
 #'
 #' @import htmlwidgets
 #'
